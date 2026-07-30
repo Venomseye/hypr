@@ -42,7 +42,7 @@ hl.monitor({
 
 -- Set programs that you use
 local terminal = "ghostty"
-local fileManager = "dolphin"
+local fileManager = "nautilus"
 local browser = "firefox"
 local music = "spotify"
 
@@ -299,7 +299,7 @@ hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(ai))
 
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo()) -- dwindle only
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
-hl.bind(secondMod .. " + J", hl.dsp.layout("swapsplit")) -- dwindle only
+hl.bind(mainMod .. " + K", hl.dsp.layout("swapsplit")) -- dwindle only
 
 -- Move focus with mainMod + arrow keys
 --hl.bind(mainMod .. " + h", hl.dsp.focus({ direction = "left" }))
