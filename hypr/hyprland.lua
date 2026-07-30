@@ -132,7 +132,7 @@ hl.config({
 		rounding_power = 2,
 
 		-- Change transparency of focused and unfocused windows
-		active_opacity = 0.9,
+		active_opacity = 1.0,
 		inactive_opacity = 0.85,
 
 		shadow = {
@@ -346,10 +346,10 @@ hl.bind(mainMod .. " + UP", function()
 end)
 
 -- Move window  with secondMod + arrow keys
-hl.bind(secondMod .. " + LEFT", hl.dsp.window.move({ direction = "left" }))
-hl.bind(secondMod .. " + RIGHT", hl.dsp.window.move({ direction = "right" }))
-hl.bind(secondMod .. " + UP", hl.dsp.window.move({ direction = "up" }))
-hl.bind(secondMod .. " + DOWN", hl.dsp.window.move({ direction = "down" }))
+--hl.bind(secondMod .. " + LEFT", hl.dsp.window.move({ direction = "left" }))
+--hl.bind(secondMod .. " + RIGHT", hl.dsp.window.move({ direction = "right" }))
+--hl.bind(secondMod .. " + UP", hl.dsp.window.move({ direction = "up" }))
+--hl.bind(secondMod .. " + DOWN", hl.dsp.window.move({ direction = "down" }))
 
 
 -- Toggle window maximization
@@ -372,6 +372,12 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:mag
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
+
+-- Scroll through existing workspaces with secondMod + arrow
+hl.bind(secondMod .. " + right", hl.dsp.window.resize({ x = 100, y = 0, relative = true }), { repeating = true }, { description = "Increase window width with keyboard" })
+hl.bind(secondMod .. " + left", hl.dsp.window.resize({ x = -100, y = 0, relative = true }), { repeating = true }, { description = "Reduce window width with keyboard" })
+hl.bind(secondMod .. " + down", hl.dsp.window.resize({ x = 0, y = 100, relative = true }), { repeating = true }, { description = "Increase window height with keyboard" })
+hl.bind(secondMod .. " + up", hl.dsp.window.resize({ x = 0, y = -100, relative = true }), { repeating = true }, { description = "Reduce window height with keyboard" })
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
