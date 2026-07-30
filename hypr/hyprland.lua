@@ -297,8 +297,9 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 --hl.bind(mainMod .. " + N", hl.dsp.exec_cmd(notion))
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(ai))
 
--- hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
---hl.bind(mainMod .. " + j", hl.dsp.layout("togglesplit")) -- dwindle only
+hl.bind(mainMod .. " + P", hl.dsp.window.pseudo()) -- dwindle only
+hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
+hl.bind(secondMod .. " + J", hl.dsp.layout("swapsplit")) -- dwindle only
 
 -- Move focus with mainMod + arrow keys
 --hl.bind(mainMod .. " + h", hl.dsp.focus({ direction = "left" }))
