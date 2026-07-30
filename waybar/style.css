@@ -19,9 +19,11 @@ window#waybar {
 #workspaces button {
   padding: 3px;
   margin: 7px 0px 7px 7px;
+  min-width: 24px;
   background: transparent;
   border-radius: 2px;
   color: white;
+  transition: none;
 }
 
 #workspaces button.active {
@@ -47,6 +49,19 @@ window#waybar {
 #workspaces button.urgent {
   background: rgba(227, 81, 73, 1);
   color: black;
+}
+
+#battery.warning {
+  color: #f2c94c;
+}
+
+#battery.critical {
+  color: rgba(227, 81, 73, 1);
+  font-weight: 700;
+}
+
+#battery.charging {
+  color: @highlight;
 }
 
 #pulseaudio-slider {
@@ -79,22 +94,30 @@ window#waybar {
 }
 
 #media {
-  color: #42ff9f;
-  margin: 7px 0px 7px 80px;
+  background: @dark-8;
+  border-radius: 8px;
+  padding: 0px 12px;
+  margin: 7px 10px 7px 10px;
 }
 
 #custom-media-animation {
+  color: @highlight;
   font-size: 13px;
   margin-right: 10px;
 }
 
 #custom-media-now-playing {
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
   margin-right: 10px;
 }
 
 #custom-media-time {
   color: @dark-5;
-  font-size: 14px;
+  font-size: 13px;
+  font-family: "JetBrainsMono Nerd Font Propo", monospace;
+  min-width: 72px;
 }
 
 tooltip {
@@ -104,7 +127,4 @@ tooltip {
 
 tooltip label {
   color: white;
-}
-.battery-icon {
-    font-family: "Symbols Nerd Font";
 }
