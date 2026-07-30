@@ -132,7 +132,7 @@ hl.config({
 		rounding_power = 2,
 
 		-- Change transparency of focused and unfocused windows
-		active_opacity = 1.0,
+		active_opacity = 0.90,
 		inactive_opacity = 0.85,
 
 		shadow = {
@@ -143,9 +143,9 @@ hl.config({
 		},
 
 		blur = {
-			enabled = false,
+			enabled = True,
 			size = 3,
-			passes = 1,
+			passes = 2,
 			vibrancy = 0.1696,
 		},
 	},
@@ -283,7 +283,7 @@ local secondMod = "SUPER + SHIFT" -- Sets "Windows" + "SHIFT" key as second modi
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 
 -- rofi menus
-hl.bind(secondMod .. " + RETURN", hl.dsp.exec_cmd(launcher))
+hl.bind(mainMod .. "+ CTRL + RETURN", hl.dsp.exec_cmd(launcher))
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(runner))
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(calculator))
 --hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(emojiSearch))
