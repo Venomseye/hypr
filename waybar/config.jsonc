@@ -8,12 +8,13 @@
     },
     "battery": {
         "interval": 60,
-        "format": "{capacity}% {icon}",
+        "format": "{capacity}% <span class='battery-icon'>{icon}</span>",
         "format-icons": {
             "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
             "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
-        },
+        }
     },
+
     "bluetooth": {
       "format": "",
       "format-disabled": "", // an empty format will hide the module
@@ -29,11 +30,11 @@
         "max-length": 10,
         "on-click": "exec ghostty --title=btop -e btop"
     },
-    "memory": {
+        "memory": {
         "interval": 30,
         "format": " {percentage}%",
         "tooltip-format": "{used:0.1f}G/{total:0.1f}G used",
-        "on-click": "exec ghostty --title=htop -e htop",
+        "on-click": "exec ghostty --title=htop -e htop"
     },
     "network": {
         "format": "",
@@ -45,7 +46,7 @@
         "tooltip-format-ethernet": "{ifname} ",
         "tooltip-format-disconnected": "󰖪",
         "max-length": 50,
-        "on-click": "exec nmrs",
+        "on-click": "exec nmrs"
     },
     "clock": {
       "format": "󰥔 {:%a, %d. %b %I:%M %p}",
@@ -65,7 +66,7 @@
         },
         "scroll-step": 1,
         "ignored-sinks": ["Easy Effects Sink"],
-        "on-click": "pavucontrol",
+        "on-click": "pavucontrol"
     },
     "pulseaudio/slider": {
         "min": 0,
@@ -93,16 +94,16 @@
       "tooltip": false,
       "on-click": "playerctl play-pause",
       "on-click-middle": "playerctl previous",
-      "on-click-right": "playerctl next",
+      "on-click-right": "playerctl next"
     },
     "custom/media-animation": {
       "exec": "~/.config/waybar/custom_modules/media/media-animation.sh",
-      "tooltip": false,
+      "tooltip": false
     },
     "custom/media-time": {
       "exec": "~/.config/waybar/custom_modules/media/media-time.sh",
       "escape": true,
       "interval": 1,
-      "tooltip": false,
+      "tooltip": false
     }
 }

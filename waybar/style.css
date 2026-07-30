@@ -6,9 +6,9 @@
 @define-color dark-5 rgba(113, 113, 122, 1);
 
 * {
-  /* `otf-font-awesome` is required to be installed for icons */
-  font-family: JetBrainsMono Nerd Font Propo;
-  font-size: 17px;
+  /* This ensures text gets Propo spacing, but missing glyphs grab the raw Symbol Font */
+  font-family: "JetBrainsMono Nerd Font Propo", "Symbols Nerd Font", sans-serif;
+  font-size: 20px;
 }
 
 window#waybar {
@@ -104,4 +104,7 @@ tooltip {
 
 tooltip label {
   color: white;
+}
+.battery-icon {
+    font-family: "Symbols Nerd Font";
 }
