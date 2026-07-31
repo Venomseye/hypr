@@ -499,6 +499,52 @@ hl.window_rule({
 	-- opacity = "0.9 override 0.8 override",
 })
 
+-- Waybar-launched utility windows: float + center instead of tiling into the layout
+hl.window_rule({
+	name = "float-bluetui",
+	match = { title = "bluetui" },
+
+	float = true,
+	center = true,
+	size = "45% 55%",
+})
+
+hl.window_rule({
+	name = "float-nmtui",
+	match = { title = "nmtui" },
+
+	float = true,
+	center = true,
+	size = "45% 55%",
+})
+
+hl.window_rule({
+	name = "float-btop",
+	match = { title = "btop" },
+
+	float = true,
+	center = true,
+	size = "60% 65%",
+})
+
+hl.window_rule({
+	name = "float-htop",
+	match = { title = "htop" },
+
+	float = true,
+	center = true,
+	size = "60% 65%",
+})
+
+hl.window_rule({
+	name = "float-pavucontrol",
+	match = { class = "org.pulseaudio.pavucontrol" },
+
+	float = true,
+	center = true,
+	size = "40% 50%",
+})
+
 -- Layer rules also return a handle.
 -- local overlayLayerRule = hl.layer_rule({
 --     name  = "no-anim-overlay",
