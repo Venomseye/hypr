@@ -1,11 +1,8 @@
 {
     "layer": "top",
-    "modules-left": ["hyprland/workspaces", "group/media", "hyprland/window"],
+    "modules-left": ["hyprland/workspaces", "group/media"],
     "modules-center": ["clock"],
     "modules-right": ["hyprland/submap", "group/volume", "battery", "bluetooth", "network", "cpu", "memory"],
-    "hyprland/window": {
-        "max-length": 50
-    },
     "battery": {
         "interval": 60,
         "format": "{capacity}%",
