@@ -44,7 +44,7 @@
         "tooltip-format-ethernet": "{ifname} ",
         "tooltip-format-disconnected": "󰖪",
         "max-length": 50,
-        "on-click": "exec nmtui"
+        "on-click": "exec kitty --title=nmtui -e nmtui"
     },
     "clock": {
       "format": "󰥔 {:%a, %d. %b %I:%M %p}",
