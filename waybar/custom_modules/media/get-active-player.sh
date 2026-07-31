@@ -1,24 +1,28 @@
 #!/usr/bin/env bash
 
-STATE_FILE="/tmp/waybar-media-active"
+# Always does a fresh, authoritative check - no cached/background state
+# to go stale. Prints "player<TAB>status" for whichever player is
+# currently Playing, or falls back to the first player with any known
+# status (e.g. Paused) if nothing is actively playing.
 
-player=$(cat "$STATE_FILE" 2>/dev/null)
-
-# Trust the state file as long as it still points at a player that's actually playing
-if [ -n "$player" ] && [ "$(playerctl -p "$player" status 2>/dev/null)" = "Playing" ]; then
-    echo "$player"
-    exit 0
-fi
-
-# Fallback: state file missing/stale (e.g. daemon not running yet) -> poll directly
 players=$(playerctl -l 2>/dev/null)
 [ -z "$players" ] && exit 0
 
+fallback_player=""
+fallback_status=""
+
 while IFS= read -r p; do
-    if [ "$(playerctl -p "$p" status 2>/dev/null)" = "Playing" ]; then
-        echo "$p"
+    s=$(playerctl -p "$p" status 2>/dev/null)
+    if [ "$s" = "Playing" ]; then
+        printf '%s\t%s\n' "$p" "$s"
         exit 0
+    fi
+    if [ -z "$fallback_player" ] && [ -n "$s" ]; then
+        fallback_player="$p"
+        fallback_status="$s"
     fi
 done <<< "$players"
 
-echo "$players" | head -n1
+if [ -n "$fallback_player" ]; then
+    printf '%s\t%s\n' "$fallback_player" "$fallback_status"
+fi

@@ -3,7 +3,7 @@
 DIR="$(dirname "$0")"
 
 zscroll -l 20 \
-    --delay 0.9\
+    --delay 0.3 \
     --update-check true \
     "$DIR/media-now-playing-info.sh" 2>/dev/null
 
