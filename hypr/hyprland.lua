@@ -71,6 +71,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("wl-paste --watch cliphist store")
 	hl.exec_cmd("mako")
 	hl.exec_cmd("hypridle")
+	hl.exec_cmd("blueman-applet")
 end)
 
 -------------------------------
@@ -501,12 +502,12 @@ hl.window_rule({
 
 -- Waybar-launched utility windows: float + center instead of tiling into the layout
 hl.window_rule({
-	name = "float-bluetui",
-	match = { title = "bluetui" },
+	name = "float-blueman-manager",
+	match = { class = "blueman-manager" },
 
 	float = true,
 	center = true,
-	size = "45% 55%",
+	size = "40% 45%",
 })
 
 hl.window_rule({
