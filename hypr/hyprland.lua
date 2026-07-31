@@ -69,6 +69,8 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("hyprctl setcursor Bibata-Modern-Ice 30")
 	hl.exec_cmd("playerctld daemon")
 	hl.exec_cmd("wl-paste --watch cliphist store")
+	hl.exec_cmd("mako")
+	hl.exec_cmd("hypridle")
 end)
 
 -------------------------------
@@ -143,7 +145,7 @@ hl.config({
 		},
 
 		blur = {
-			enabled = True,
+			enabled = true,
 			size = 3,
 			passes = 2,
 			vibrancy = 0.1696,
@@ -283,7 +285,7 @@ local secondMod = "SUPER + SHIFT" -- Sets "Windows" + "SHIFT" key as second modi
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 
 -- rofi menus
-hl.bind(mainMod .. "+ CTRL + RETURN", hl.dsp.exec_cmd(launcher))
+hl.bind(mainMod .. " + CTRL + RETURN", hl.dsp.exec_cmd(launcher))
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(runner))
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(calculator))
 --hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(emojiSearch))
@@ -345,18 +347,15 @@ hl.bind(mainMod .. " + UP", function()
 	end
 end)
 
--- Move window  with secondMod + arrow keys
---hl.bind(secondMod .. " + LEFT", hl.dsp.window.move({ direction = "left" }))
---hl.bind(secondMod .. " + RIGHT", hl.dsp.window.move({ direction = "right" }))
---hl.bind(secondMod .. " + UP", hl.dsp.window.move({ direction = "up" }))
---hl.bind(secondMod .. " + DOWN", hl.dsp.window.move({ direction = "down" }))
+-- Move window with mainMod + CTRL + arrow keys
+hl.bind(mainMod .. " + CTRL + LEFT", hl.dsp.window.move({ direction = "left" }))
+hl.bind(mainMod .. " + CTRL + RIGHT", hl.dsp.window.move({ direction = "right" }))
+hl.bind(mainMod .. " + CTRL + UP", hl.dsp.window.move({ direction = "up" }))
+hl.bind(mainMod .. " + CTRL + DOWN", hl.dsp.window.move({ direction = "down" }))
 
 
 -- Toggle window maximization
-hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen({ mode = "maximized" }))
-
--- Toggle window full screen
-hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }), { description = "Toggle Fullscreen" })
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized" }))
 -- toggle floating
 hl.bind(secondMod .. " + T", hl.dsp.window.float({ action = "toggle" }))
 
@@ -376,11 +375,11 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:mag
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 
--- Scroll through existing workspaces with secondMod + arrow
-hl.bind(secondMod .. " + right", hl.dsp.window.resize({ x = 100, y = 0, relative = true }), { repeating = true }, { description = "Increase window width with keyboard" })
-hl.bind(secondMod .. " + left", hl.dsp.window.resize({ x = -100, y = 0, relative = true }), { repeating = true }, { description = "Reduce window width with keyboard" })
-hl.bind(secondMod .. " + down", hl.dsp.window.resize({ x = 0, y = 100, relative = true }), { repeating = true }, { description = "Increase window height with keyboard" })
-hl.bind(secondMod .. " + up", hl.dsp.window.resize({ x = 0, y = -100, relative = true }), { repeating = true }, { description = "Reduce window height with keyboard" })
+-- Resize windows with secondMod + arrow
+hl.bind(secondMod .. " + right", hl.dsp.window.resize({ x = 100, y = 0, relative = true }), { repeating = true, description = "Increase window width with keyboard" })
+hl.bind(secondMod .. " + left", hl.dsp.window.resize({ x = -100, y = 0, relative = true }), { repeating = true, description = "Reduce window width with keyboard" })
+hl.bind(secondMod .. " + down", hl.dsp.window.resize({ x = 0, y = 100, relative = true }), { repeating = true, description = "Increase window height with keyboard" })
+hl.bind(secondMod .. " + up", hl.dsp.window.resize({ x = 0, y = -100, relative = true }), { repeating = true, description = "Reduce window height with keyboard" })
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
@@ -494,8 +493,8 @@ hl.window_rule({
 })
 
 hl.window_rule({
-	name = "ghostty",
-	match = { class = "com.mitchellh.ghostty" },
+	name = "kitty",
+	match = { class = "kitty" },
 
 	-- opacity = "0.9 override 0.8 override",
 })
